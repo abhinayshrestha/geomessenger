@@ -1,0 +1,20 @@
+.distanceContainer  {
+    padding : 5px 15px 5px;
+}
+
+.distanceLabel {
+    font-size : 13px;
+    color : #aaa;
+}
+
+.distanceFlex {
+    display : flex;
+    align-items : center;
+    padding : 0px;
+    margin : 5px 0px;
+}
+.distanceVal{
+    font-size : 14px;
+    color : #757575;
+    margin-left: 7px;
+}
