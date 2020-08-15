@@ -12,8 +12,7 @@ import { BrowserRouter } from 'react-router-dom';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
-axios.defaults.baseURL = 'https://geomessenger.herokuapp.com/';
-// axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.baseURL = 'http://localhost:8000';
 
 const app =  
             <Provider store={store}>
