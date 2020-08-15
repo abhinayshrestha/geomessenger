@@ -18,7 +18,7 @@ app.use('/', authRoutes);
 app.use('/app',userRoutes);
 app.use('/chat',chatRoutes);
 
-mongoose.connect('mongodb+srv://abhinay:password@cluster0-aabr9.mongodb.net/test?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://username:password@cluster0-aabr9.mongodb.net/test?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true })
    .then(() => {
         const port = process.env.PORT || 8000;
         const server = app.listen(port);
