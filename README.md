@@ -1,5 +1,7 @@
 Live Demo https://geomessenger-5b0ac.firebaseapp.com/
 
+A Location based chat app that shows users near you and let you chat with them in real time.
+
 To run this app in local environment
 
 For client (React App)
