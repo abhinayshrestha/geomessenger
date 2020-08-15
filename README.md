@@ -22,4 +22,4 @@ npm install,
 node app.js,
 For nodemon package use nodemon start
 
-
+Note : if you node server listens in port other than 8080 then go to /frontend/scr/index.js and replace localhost:8080 with your node server url and port
