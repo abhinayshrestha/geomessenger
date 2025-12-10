@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  # ----------------------------------
+  # Backend Service (Node.js)
+  # ----------------------------------
+  backend:
+    # Use the Dockerfile located in the 'backend' folder
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.backend
+    # Map the container port 5000 to the host port 5000
+    # This allows you to access the API on http://localhost:5000
+    ports:
+      - '8001:5000'
+    # Restart the container if it fails
+    restart: always
+    # Environment variable to define the API port (if needed by your app)
+    environment:
+      - PORT=5000
+    # Specify the network to use
+    networks:
+      - app-network
+
+  # ----------------------------------
+  # Frontend Service (React + Nginx)
+  # ----------------------------------
+  frontend:
+    # Use the Dockerfile located in the 'frontend' folder
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.frontend
+    # Map the container port 80 (Nginx default) to the host port 8080
+    # This allows you to access the UI on http://localhost:8080
+    ports:
+      - '3000:80'
+    # Restart policy
+    restart: always
+    # Frontend depends on backend being ready before starting
+    depends_on:
+      - backend
+    # Specify the network to use
+    networks:
+      - app-network
+
+# ----------------------------------
+# Define Networks
+# ----------------------------------
+networks:
+  app-network:
+    driver: bridge

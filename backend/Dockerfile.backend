@@ -1,0 +1,22 @@
+# Use a specific Node 12 image as required
+FROM node:12-alpine
+
+# Set the working directory in the container
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json to install dependencies
+# This leverages Docker cache
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application code
+COPY . .
+
+# Expose the port your Node app listens on (assuming default 5000)
+# Check your app.js for the exact port
+EXPOSE 5000
+
+# Define the command to run the application
+CMD [ "npm", "start" ]
